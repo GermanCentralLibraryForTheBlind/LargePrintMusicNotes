@@ -7,23 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E74383A31C7B6B9300FBA586 /* RESTConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74383A21C7B6B9300FBA586 /* RESTConnector.swift */; };
 		E79AE9781C7B43F20075F89E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79AE9771C7B43F20075F89E /* AppDelegate.swift */; };
-		E79AE97A1C7B43F20075F89E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79AE9791C7B43F20075F89E /* ViewController.swift */; };
 		E79AE97D1C7B43F20075F89E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E79AE97B1C7B43F20075F89E /* Main.storyboard */; };
-		E79AE9801C7B43F20075F89E /* LargePrintMusicNotesViewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E79AE97E1C7B43F20075F89E /* LargePrintMusicNotesViewer.xcdatamodeld */; };
-		E79AE9821C7B43F20075F89E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E79AE9811C7B43F20075F89E /* Assets.xcassets */; };
-		E79AE9851C7B43F20075F89E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E79AE9831C7B43F20075F89E /* LaunchScreen.storyboard */; };
+		E79AE98D1C7B45A60075F89E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E79AE98C1C7B45A60075F89E /* Images.xcassets */; };
+		E79AE98F1C7B4A010075F89E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79AE98E1C7B4A010075F89E /* LoginViewController.swift */; };
+		E7EAE1441C7C4FA000684A90 /* PdfViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAE1431C7C4FA000684A90 /* PdfViewerController.swift */; };
+		E7EAE1461C7C501E00684A90 /* example.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E7EAE1451C7C501E00684A90 /* example.pdf */; };
+		E7EAE14A1C7C69D500684A90 /* CompositionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAE1491C7C69D500684A90 /* CompositionsViewController.swift */; };
+		FD2E5C63596FECFCD29CB2A6 /* Pods_LargePrintMusicNotesViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F948767976774761319E72B /* Pods_LargePrintMusicNotesViewer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3DC45E7011D945EE8E14225A /* Pods-LargePrintMusicNotesViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LargePrintMusicNotesViewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LargePrintMusicNotesViewer/Pods-LargePrintMusicNotesViewer.debug.xcconfig"; sourceTree = "<group>"; };
+		3F948767976774761319E72B /* Pods_LargePrintMusicNotesViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LargePrintMusicNotesViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79E8449B461196E8277D1FCD /* Pods-LargePrintMusicNotesViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LargePrintMusicNotesViewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-LargePrintMusicNotesViewer/Pods-LargePrintMusicNotesViewer.release.xcconfig"; sourceTree = "<group>"; };
+		E74383A21C7B6B9300FBA586 /* RESTConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTConnector.swift; sourceTree = "<group>"; };
 		E79AE9741C7B43F20075F89E /* LargePrintMusicNotesViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LargePrintMusicNotesViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E79AE9771C7B43F20075F89E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E79AE9791C7B43F20075F89E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E79AE97C1C7B43F20075F89E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E79AE97F1C7B43F20075F89E /* LargePrintMusicNotesViewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LargePrintMusicNotesViewer.xcdatamodel; sourceTree = "<group>"; };
-		E79AE9811C7B43F20075F89E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E79AE9841C7B43F20075F89E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E79AE9861C7B43F20075F89E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E79AE98C1C7B45A60075F89E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E79AE98E1C7B4A010075F89E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E7EAE1431C7C4FA000684A90 /* PdfViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PdfViewerController.swift; sourceTree = "<group>"; };
+		E7EAE1451C7C501E00684A90 /* example.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = example.pdf; sourceTree = "<group>"; };
+		E7EAE1491C7C69D500684A90 /* CompositionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD2E5C63596FECFCD29CB2A6 /* Pods_LargePrintMusicNotesViewer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		358B413EF4B0BB963C678190 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3DC45E7011D945EE8E14225A /* Pods-LargePrintMusicNotesViewer.debug.xcconfig */,
+				79E8449B461196E8277D1FCD /* Pods-LargePrintMusicNotesViewer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7CEF0236389D8AB020F75606 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F948767976774761319E72B /* Pods_LargePrintMusicNotesViewer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E79AE96B1C7B43F20075F89E = {
 			isa = PBXGroup;
 			children = (
 				E79AE9761C7B43F20075F89E /* LargePrintMusicNotesViewer */,
 				E79AE9751C7B43F20075F89E /* Products */,
+				358B413EF4B0BB963C678190 /* Pods */,
+				7CEF0236389D8AB020F75606 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,13 +84,15 @@
 		E79AE9761C7B43F20075F89E /* LargePrintMusicNotesViewer */ = {
 			isa = PBXGroup;
 			children = (
+				E7EAE1451C7C501E00684A90 /* example.pdf */,
+				E79AE98C1C7B45A60075F89E /* Images.xcassets */,
 				E79AE9771C7B43F20075F89E /* AppDelegate.swift */,
-				E79AE9791C7B43F20075F89E /* ViewController.swift */,
 				E79AE97B1C7B43F20075F89E /* Main.storyboard */,
-				E79AE9811C7B43F20075F89E /* Assets.xcassets */,
-				E79AE9831C7B43F20075F89E /* LaunchScreen.storyboard */,
 				E79AE9861C7B43F20075F89E /* Info.plist */,
-				E79AE97E1C7B43F20075F89E /* LargePrintMusicNotesViewer.xcdatamodeld */,
+				E79AE98E1C7B4A010075F89E /* LoginViewController.swift */,
+				E74383A21C7B6B9300FBA586 /* RESTConnector.swift */,
+				E7EAE1431C7C4FA000684A90 /* PdfViewerController.swift */,
+				E7EAE1491C7C69D500684A90 /* CompositionsViewController.swift */,
 			);
 			path = LargePrintMusicNotesViewer;
 			sourceTree = "<group>";
@@ -74,9 +104,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E79AE9891C7B43F20075F89E /* Build configuration list for PBXNativeTarget "LargePrintMusicNotesViewer" */;
 			buildPhases = (
+				95889B8259A76A84189E2CAA /* Check Pods Manifest.lock */,
 				E79AE9701C7B43F20075F89E /* Sources */,
 				E79AE9711C7B43F20075F89E /* Frameworks */,
 				E79AE9721C7B43F20075F89E /* Resources */,
+				2EF29362CB6DB69E7F122982 /* Embed Pods Frameworks */,
+				AAA6E1C7853B2049717D3ED2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,21 +159,71 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E79AE9851C7B43F20075F89E /* LaunchScreen.storyboard in Resources */,
-				E79AE9821C7B43F20075F89E /* Assets.xcassets in Resources */,
+				E79AE98D1C7B45A60075F89E /* Images.xcassets in Resources */,
 				E79AE97D1C7B43F20075F89E /* Main.storyboard in Resources */,
+				E7EAE1461C7C501E00684A90 /* example.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2EF29362CB6DB69E7F122982 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LargePrintMusicNotesViewer/Pods-LargePrintMusicNotesViewer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95889B8259A76A84189E2CAA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AAA6E1C7853B2049717D3ED2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LargePrintMusicNotesViewer/Pods-LargePrintMusicNotesViewer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E79AE9701C7B43F20075F89E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E79AE97A1C7B43F20075F89E /* ViewController.swift in Sources */,
-				E79AE9801C7B43F20075F89E /* LargePrintMusicNotesViewer.xcdatamodeld in Sources */,
+				E7EAE14A1C7C69D500684A90 /* CompositionsViewController.swift in Sources */,
+				E79AE98F1C7B4A010075F89E /* LoginViewController.swift in Sources */,
+				E74383A31C7B6B9300FBA586 /* RESTConnector.swift in Sources */,
+				E7EAE1441C7C4FA000684A90 /* PdfViewerController.swift in Sources */,
 				E79AE9781C7B43F20075F89E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,14 +237,6 @@
 				E79AE97C1C7B43F20075F89E /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E79AE9831C7B43F20075F89E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E79AE9841C7B43F20075F89E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -252,6 +327,7 @@
 		};
 		E79AE98A1C7B43F20075F89E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DC45E7011D945EE8E14225A /* Pods-LargePrintMusicNotesViewer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LargePrintMusicNotesViewer/Info.plist;
@@ -263,6 +339,7 @@
 		};
 		E79AE98B1C7B43F20075F89E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79E8449B461196E8277D1FCD /* Pods-LargePrintMusicNotesViewer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LargePrintMusicNotesViewer/Info.plist;
@@ -291,21 +368,9 @@
 				E79AE98B1C7B43F20075F89E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		E79AE97E1C7B43F20075F89E /* LargePrintMusicNotesViewer.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				E79AE97F1C7B43F20075F89E /* LargePrintMusicNotesViewer.xcdatamodel */,
-			);
-			currentVersion = E79AE97F1C7B43F20075F89E /* LargePrintMusicNotesViewer.xcdatamodel */;
-			path = LargePrintMusicNotesViewer.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = E79AE96C1C7B43F20075F89E /* Project object */;
 }
