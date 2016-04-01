@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		E74383A31C7B6B9300FBA586 /* RESTConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74383A21C7B6B9300FBA586 /* RESTConnector.swift */; };
+		E7626CE81CAE960C008873CC /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E7626CE61CAE960C008873CC /* LICENSE */; };
+		E7626CE91CAE960C008873CC /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = E7626CE71CAE960C008873CC /* README.md */; };
 		E79AE9781C7B43F20075F89E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79AE9771C7B43F20075F89E /* AppDelegate.swift */; };
 		E79AE97D1C7B43F20075F89E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E79AE97B1C7B43F20075F89E /* Main.storyboard */; };
 		E79AE98D1C7B45A60075F89E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E79AE98C1C7B45A60075F89E /* Images.xcassets */; };
 		E79AE98F1C7B4A010075F89E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79AE98E1C7B4A010075F89E /* LoginViewController.swift */; };
+		E7C9D40D1CAE97D500F46A91 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E7C9D40C1CAE97D500F46A91 /* .gitignore */; };
 		E7EAE1441C7C4FA000684A90 /* PdfViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAE1431C7C4FA000684A90 /* PdfViewerController.swift */; };
 		E7EAE1461C7C501E00684A90 /* example.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E7EAE1451C7C501E00684A90 /* example.pdf */; };
 		E7EAE14A1C7C69D500684A90 /* CompositionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAE1491C7C69D500684A90 /* CompositionsViewController.swift */; };
@@ -23,12 +26,15 @@
 		3F948767976774761319E72B /* Pods_LargePrintMusicNotesViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LargePrintMusicNotesViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79E8449B461196E8277D1FCD /* Pods-LargePrintMusicNotesViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LargePrintMusicNotesViewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-LargePrintMusicNotesViewer/Pods-LargePrintMusicNotesViewer.release.xcconfig"; sourceTree = "<group>"; };
 		E74383A21C7B6B9300FBA586 /* RESTConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTConnector.swift; sourceTree = "<group>"; };
+		E7626CE61CAE960C008873CC /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		E7626CE71CAE960C008873CC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E79AE9741C7B43F20075F89E /* LargePrintMusicNotesViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LargePrintMusicNotesViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E79AE9771C7B43F20075F89E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E79AE97C1C7B43F20075F89E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E79AE9861C7B43F20075F89E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E79AE98C1C7B45A60075F89E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E79AE98E1C7B4A010075F89E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E7C9D40C1CAE97D500F46A91 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E7EAE1431C7C4FA000684A90 /* PdfViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PdfViewerController.swift; sourceTree = "<group>"; };
 		E7EAE1451C7C501E00684A90 /* example.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = example.pdf; sourceTree = "<group>"; };
 		E7EAE1491C7C69D500684A90 /* CompositionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionsViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +72,9 @@
 		E79AE96B1C7B43F20075F89E = {
 			isa = PBXGroup;
 			children = (
+				E7C9D40C1CAE97D500F46A91 /* .gitignore */,
+				E7626CE61CAE960C008873CC /* LICENSE */,
+				E7626CE71CAE960C008873CC /* README.md */,
 				E79AE9761C7B43F20075F89E /* LargePrintMusicNotesViewer */,
 				E79AE9751C7B43F20075F89E /* Products */,
 				358B413EF4B0BB963C678190 /* Pods */,
@@ -159,8 +168,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7C9D40D1CAE97D500F46A91 /* .gitignore in Resources */,
 				E79AE98D1C7B45A60075F89E /* Images.xcassets in Resources */,
 				E79AE97D1C7B43F20075F89E /* Main.storyboard in Resources */,
+				E7626CE81CAE960C008873CC /* LICENSE in Resources */,
 				E7EAE1461C7C501E00684A90 /* example.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7626CE91CAE960C008873CC /* README.md in Sources */,
 				E7EAE14A1C7C69D500684A90 /* CompositionsViewController.swift in Sources */,
 				E79AE98F1C7B4A010075F89E /* LoginViewController.swift in Sources */,
 				E74383A31C7B6B9300FBA586 /* RESTConnector.swift in Sources */,
