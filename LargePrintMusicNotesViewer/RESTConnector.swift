@@ -32,66 +32,91 @@ class RESTConnector {
     let show = "show/"
     
     
-    func showRequest(id : String,  completionHandler: (AnyObject, NSError?) -> Void) {
-        
-        
-        let parameters: [String: AnyObject] = ["id": id]
-        
-        Alamofire.request(.GET, self.endpoint + self.show, parameters: parameters).responseData {
-            
-            response in
-            
-            print(response.request)
-            print(response.response)
-            print(response.result)
-            //                completionHandler(responseObject: responseData.data, error: nil)
-        }
-    }
-    
-    func loginRequest(userName : String, password : String, completionHandler: ([[String:AnyObject]], NSError?) -> Void) {
+    func getUserData(userName : String, password : String, completionHandler: ([[String:AnyObject]], String?) -> Void) {
         
         
         var parameters: [String: AnyObject] = [:]
         
         Alamofire.request(.GET, self.endpoint + self.login, parameters: parameters).responseJSON {
+            
             response in
             
-            if let JSON = response.result.value {
-                print("Did receive JSON data: \(JSON)")
-                parameters = ["username" : userName, "password" : password , "csrfmiddlewaretoken" : (JSON["csrf_token"] as? String)!]
-            }
-            else {
-                print("JSON data is nil.")
-            }
-            
-            
-            Alamofire.request(.POST, self.endpoint + self.login, parameters: parameters).responseJSON {
+            switch response.result {
                 
-                response in
-                //                    print(response.request)
-                //                    print(response.response)
-                //print(response.result)
+            case .Success:
                 
+                if let JSON = response.result.value {
+                  //  print("Did receive JSON data: \(JSON)")
+                    parameters = ["username" : userName, "password" : password , "csrfmiddlewaretoken" : (JSON["csrf_token"] as? String)!]
+                }
+                else {
+                    completionHandler([[String:AnyObject]](), "JSON(csrf_token) data is nil.");
+                }
                 
-                Alamofire.request(.GET, self.endpoint + self.list).responseJSON {
+                Alamofire.request(.POST, self.endpoint + self.login, parameters: parameters).responseJSON {
                     
                     response in
                     
-                    print(response.request)
-                    print(response.response)
+                    
                     switch response.result {
-                    case .Success(let value):
-                        if let resData = JSON(value)["files"].arrayObject {
-                            completionHandler(resData as! [[String:AnyObject]], nil)
+                        
+                    case .Success:
+                        
+                        Alamofire.request(.GET, self.endpoint + self.list).responseJSON {
+                            
+                            response in
+                            
+                            switch response.result {
+                                
+                            case .Success(let value):
+                                if let resData = JSON(value)["files"].arrayObject {
+                                    completionHandler(resData as! [[String:AnyObject]], nil)
+                                }
+                                break
+                            case .Failure:
+                                completionHandler([[String:AnyObject]](), self.getErrorMessage(response))
+                                break
+                            }
                         }
-                    case .Failure(let error):
-                        completionHandler([[String:AnyObject]](), error)
+                        
+                        break
+                    case .Failure:
+                        completionHandler([[String:AnyObject]](), self.getErrorMessage(response))
+                        break
                     }
                 }
                 
+            case .Failure:
+                completionHandler([[String:AnyObject]](), self.getErrorMessage(response))
+                break
             }
-            //}
+        }
+    }
+    
+    
+    func getErrorMessage(response: Alamofire.Response<AnyObject, NSError>) -> String {
+        
+        let message : String
+        if let httpStatusCode = response.response?.statusCode {
+            switch(httpStatusCode) {
+            case 400:
+                message = "Nutzername oder Passwort nicht vorhanden."
+            case 401:
+                message = "Der eingegebene Nutzername und/oder das Passwort ist nicht gültig."
+            case 404:
+                message = "Der gewünschte Service steht zur Zeit nicht zur Verfügung."
+            case 500:
+                message = "Der Service arbeitet fehlerhaft, bitte kontaktieren Sie einen DZB-Mitarbieter."
+
+                
+            default:
+                message = "Status Code: " + String(httpStatusCode);
+            }
+        } else {
+            message = response.result.error!.localizedDescription;
         }
         
+        //  print("error: " + message);
+        return message;
     }
 }

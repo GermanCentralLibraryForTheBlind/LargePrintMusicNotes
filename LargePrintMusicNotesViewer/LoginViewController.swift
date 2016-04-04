@@ -2,7 +2,7 @@
 //
 //The MIT License (MIT)
 //Copyright (c) 2016 German Central Library for the Blind (DZB)
-//Permission is hereby granted, free of charge, to any person obtaining a copy 
+//Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
 //in the Software without restriction, including without limitation the rights
 //to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -35,58 +35,65 @@ class LoginViewController: UIViewController {
         let username = self.userName.text
         let password = self.password.text
         
-        self.connector.loginRequest(username!, password: password!) {
+        // Validate the text fields
+        if username!.characters.count  < 1 {
+            showAlert("Ungültig", alertMessage: "Bitte geben Sie einen Nutzernamen ein.");
+        } else if password!.characters.count < 1 {
+            showAlert("Ungültig", alertMessage: "Bitte geben Sie das Passwort ein.");
+        } else {
+            // Run a spinner to show a task in progress
+            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
+            spinner.startAnimating()
             
-            (compositionsJSON, error) in
             
-            self.compositionsJSON = compositionsJSON
-            print("responseObject = \(compositionsJSON); error = \(error)")
-            
-            dispatch_async(dispatch_get_main_queue()){
-                self.performSegueWithIdentifier("Compositions", sender:self)
+            self.connector.getUserData(username!, password: password!) {
+                
+                (compositionsJSON, error) in
+                
+                // Stop the spinner
+                spinner.stopAnimating()
+                
+                self.compositionsJSON = compositionsJSON
+                
+                if(error == nil) {
+                    
+                    dispatch_async(dispatch_get_main_queue()){
+                        self.performSegueWithIdentifier("Compositions", sender:self)
+                    }
+                } else {
+                    
+                    self.showAlert("Anmeldung fehlgeschlagen", alertMessage: error!);
+                    
+                }
+                return
             }
-            return
         }
         
-        //        // Validate the text fields
-        //        if username!.characters.count  < 5 {
-        //            let alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
-        //            alert.show()
-        //
-        //        } else if password!.characters.count < 8 {
-        //            let alert = UIAlertView(title: "Invalid", message: "Password must be greater than 8 characters", delegate: self, cancelButtonTitle: "OK")
-        //            alert.show()
-        //
-        //        } else {
-        //            // Run a spinner to show a task in progress
-        //            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
-        //            spinner.startAnimating()
-        
-        
-        
-        //            // Send a request to login
-        //            PFUser.logInWithUsernameInBackground(username, password: password, block: { (user, error) -> Void in
-        //
-        //                // Stop the spinner
-        //                spinner.stopAnimating()
-        //
-        //                if ((user) != nil) {
-        //                    var alert = UIAlertView(title: "Success", message: "Logged In", delegate: self, cancelButtonTitle: "OK")
-        //                    alert.show()
-        //
-        //                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-        //                        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Home") as! UIViewController
-        //                        self.presentViewController(viewController, animated: true, completion: nil)
-        //                    })
-        //
-        //                } else {
-        //                    var alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
-        //                    alert.show()
-        //                }
-        //            })
-        //      }
     }
     
+    
+    
+    func showAlert(title: String, alertMessage : String) {
+        
+        let alertController = UIAlertController(title: title,
+                                                message: alertMessage,
+                                                preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Ok",
+            style: UIAlertActionStyle.Default, handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.destinationViewController is CompositionsViewController {
             let compositionsViewController : CompositionsViewController = segue.destinationViewController as! CompositionsViewController
@@ -107,14 +114,6 @@ class LoginViewController: UIViewController {
     }
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    
     
 }
