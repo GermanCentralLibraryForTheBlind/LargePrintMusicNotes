@@ -39,7 +39,7 @@ class PdfViewerController: UIViewController {
         self.navigationItem.title = composition["title"] as? String
         
         let url = "http://dacapolp.dzb.de:13857/DaCapoLP/show/?id=" + String((composition["id"] as? Int)!)
-        self.webView.loadRequest(NSURLRequest(URL: NSURL(string: url)!))
+        self.webView.loadRequest(URLRequest(url: URL(string: url)!))
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,7 +47,7 @@ class PdfViewerController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setCurrentComposition(compo: [String:AnyObject]) {
+    func setCurrentComposition(_ compo: [String:AnyObject]) {
        composition = compo
     }
     /*

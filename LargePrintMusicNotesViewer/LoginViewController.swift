@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
     var compositionsJSON = [[String:AnyObject]]()
     
     
-    @IBAction func login(sender: AnyObject) {
+    @IBAction func login(_ sender: AnyObject) {
         
         let username = self.userName.text
         let password = self.password.text
@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
             showAlert("Ungültig", alertMessage: "Bitte geben Sie das Passwort ein.");
         } else {
             // Run a spinner to show a task in progress
-            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
+            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)) as UIActivityIndicatorView
             spinner.startAnimating()
             
             
@@ -57,8 +57,8 @@ class LoginViewController: UIViewController {
                 
                 if(error == nil) {
                     
-                    dispatch_async(dispatch_get_main_queue()){
-                        self.performSegueWithIdentifier("Compositions", sender:self)
+                    DispatchQueue.main.async{
+                        self.performSegue(withIdentifier: "Compositions", sender:self)
                     }
                 } else {
                     
@@ -73,16 +73,16 @@ class LoginViewController: UIViewController {
     
     
     
-    func showAlert(title: String, alertMessage : String) {
+    func showAlert(_ title: String, alertMessage : String) {
         
         let alertController = UIAlertController(title: title,
                                                 message: alertMessage,
-                                                preferredStyle: UIAlertControllerStyle.Alert)
+                                                preferredStyle: UIAlertControllerStyle.alert)
         
         alertController.addAction(UIAlertAction(title: "Ok",
-            style: UIAlertActionStyle.Default, handler: nil))
+            style: UIAlertActionStyle.default, handler: nil))
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     /*
@@ -94,9 +94,9 @@ class LoginViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.destinationViewController is CompositionsViewController {
-            let compositionsViewController : CompositionsViewController = segue.destinationViewController as! CompositionsViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is CompositionsViewController {
+            let compositionsViewController : CompositionsViewController = segue.destination as! CompositionsViewController
             compositionsViewController.populateTable(compositionsJSON)
         }
     }

@@ -32,61 +32,63 @@ class RESTConnector {
     let show = "show/"
     
     
-    func getUserData(userName : String, password : String, completionHandler: ([[String:AnyObject]], String?) -> Void) {
+    func getUserData(_ userName : String, password : String, completionHandler: @escaping ([[String:AnyObject]], String?) -> Void) {
         
+        var parameters: [String:Any] = [:]
         
-        var parameters: [String: AnyObject] = [:]
-        
-        Alamofire.request(.GET, self.endpoint + self.login, parameters: parameters).responseJSON {
+        Alamofire.request(self.endpoint + self.login, method: .get,  parameters: parameters).responseJSON {
             
             response in
             
             switch response.result {
                 
-            case .Success:
+            case .success:
                 
                 if let JSON = response.result.value {
                   //  print("Did receive JSON data: \(JSON)")
-                    parameters = ["username" : userName, "password" : password , "csrfmiddlewaretoken" : (JSON["csrf_token"] as? String)!]
-                }
-                else {
+                    let jsonData = JSON as! [String:Any]
+                    let csrf_token = jsonData["csrf_token"] as! String;
+                    
+                    parameters = ["username" : userName, "password" : password , "csrfmiddlewaretoken" : csrf_token]
+                    
+                } else {
                     completionHandler([[String:AnyObject]](), "JSON(csrf_token) data is nil.");
                 }
                 
-                Alamofire.request(.POST, self.endpoint + self.login, parameters: parameters).responseJSON {
+                Alamofire.request(self.endpoint + self.login, method: .post, parameters: parameters).responseJSON {
                     
                     response in
                     
                     
                     switch response.result {
                         
-                    case .Success:
+                    case .success:
                         
-                        Alamofire.request(.GET, self.endpoint + self.list).responseJSON {
+                        Alamofire.request(self.endpoint + self.list, method: .get).responseJSON {
                             
                             response in
                             
                             switch response.result {
                                 
-                            case .Success(let value):
+                            case .success(let value):
                                 if let resData = JSON(value)["files"].arrayObject {
                                     completionHandler(resData as! [[String:AnyObject]], nil)
                                 }
                                 break
-                            case .Failure:
+                            case .failure:
                                 completionHandler([[String:AnyObject]](), self.getErrorMessage(response))
                                 break
                             }
                         }
                         
                         break
-                    case .Failure:
+                    case .failure:
                         completionHandler([[String:AnyObject]](), self.getErrorMessage(response))
                         break
                     }
                 }
                 
-            case .Failure:
+            case .failure:
                 completionHandler([[String:AnyObject]](), self.getErrorMessage(response))
                 break
             }
@@ -94,7 +96,7 @@ class RESTConnector {
     }
     
     
-    func getErrorMessage(response: Alamofire.Response<AnyObject, NSError>) -> String {
+    func getErrorMessage(_ response: Alamofire.DataResponse<Any>) -> String {
         
         let message : String
         if let httpStatusCode = response.response?.statusCode {
@@ -107,7 +109,8 @@ class RESTConnector {
                 message = "Der gewünschte Service steht zur Zeit nicht zur Verfügung."
             case 500:
                 message = "Der Service arbeitet fehlerhaft, bitte kontaktieren Sie einen DZB-Mitarbieter."
-
+            case 503:
+                message = "Der Service ist nicht verfügbar, bitte kontaktieren Sie einen DZB-Mitarbieter."
                 
             default:
                 message = "Status Code: " + String(httpStatusCode);

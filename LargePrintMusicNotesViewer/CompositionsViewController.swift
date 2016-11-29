@@ -28,14 +28,14 @@ class CompositionsViewController: UITableViewController {
     var compositions = [[String:AnyObject]]()
     var selectedCompostion = [String:AnyObject]()
     
-    func populateTable(compos:[[String:AnyObject]])
+    func populateTable(_ compos:[[String:AnyObject]])
     {
         compositions = compos
     }
     
     func refresh()
     {
-        dispatch_async(dispatch_get_main_queue(), {
+        DispatchQueue.main.async(execute: {
             self.compositionsTable.reloadData()
         })
     }
@@ -60,14 +60,14 @@ class CompositionsViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("composition")!
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "composition")!
         var dict = compositions[indexPath.row]
         cell.textLabel?.text = (dict["composer"] as? String)! + ", " + (dict["key"] as? String)!
         cell.textLabel?.font = UIFont(name: "Verdana", size:20);
@@ -76,52 +76,52 @@ class CompositionsViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return compositions.count
     }
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell,
-        forRowAtIndexPath indexPath: NSIndexPath)
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell,
+        forRowAt indexPath: IndexPath)
     {
         if (indexPath.row % 2 == 0)
         {
             cell.backgroundColor = UIColor(red: 0.2392, green: 0.3647, blue: 0.5373, alpha: 1.0) /* #3d5d89 */
-            cell.textLabel?.textColor = UIColor.whiteColor()
-            cell.detailTextLabel?.textColor = UIColor.whiteColor()
+            cell.textLabel?.textColor = UIColor.white
+            cell.detailTextLabel?.textColor = UIColor.white
         }
         else
         {
-            cell.backgroundColor = UIColor.lightGrayColor()
-            cell.textLabel?.textColor = UIColor.blackColor()
-            cell.detailTextLabel?.textColor = UIColor.blackColor()
+            cell.backgroundColor = UIColor.lightGray
+            cell.textLabel?.textColor = UIColor.black
+            cell.detailTextLabel?.textColor = UIColor.black
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         selectedCompostion = compositions[indexPath.row]
         
-        dispatch_async(dispatch_get_main_queue()){
-            self.performSegueWithIdentifier("pdfviewer", sender:self)
+        DispatchQueue.main.async{
+            self.performSegue(withIdentifier: "pdfviewer", sender:self)
         }
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
-        if segue.destinationViewController is PdfViewerController {
-            let pdfViewerController : PdfViewerController = segue.destinationViewController as! PdfViewerController
+        if segue.destination is PdfViewerController {
+            let pdfViewerController : PdfViewerController = segue.destination as! PdfViewerController
             pdfViewerController.setCurrentComposition(selectedCompostion)
         }
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return 120.0;//Choose your custom row height
     }
     
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         // hide back button
         navigationItem.hidesBackButton = true
     }
